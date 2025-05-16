@@ -1,0 +1,53 @@
+# معلومات الموقع
+title: NeoFikr - حلول ذكية متكاملة
+description: شركة رائدة في مجال التقنيات الحديثة نقدم حلولا مبتكرة تجمع بين الذكاء الاصطناعي وتقنيات الويب 3.0 لخلق مستقبل رقمي أفضل.
+baseurl: "/neofikr" # المسار الفرعي لموقعك إذا كنت تستخدم قاعدة URL
+url: "https://m0shaban.github.io" # اسم النطاق الرئيسي للموقع
+
+# إعدادات المدونة
+permalink: /blog/:year/:month/:day/:title/
+paginate: 6
+paginate_path: "/blog/page:num/"
+category_dir: "blog/category"
+tag_dir: "blog/tag"
+
+# اللغة والاتجاه
+lang: ar
+direction: rtl
+
+# الإعدادات الاجتماعية (يمكنك تعديلها حسب حساباتك)
+twitter_username: 
+github_username: m0shaban
+facebook_username: 
+instagram_username: 
+linkedin_username: 
+
+# إعدادات إضافية
+markdown: kramdown
+highlighter: rouge
+timezone: Africa/Cairo
+
+# المجموعات
+collections:
+  services:
+    output: true
+    permalink: /services/:path/
+  projects:
+    output: true
+    permalink: /projects/:path/
+
+# الاستبعادات
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .git
+
+# المكونات الإضافية
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-redirect-from
