@@ -34,10 +34,10 @@ git add .
 git commit -m "Initial website commit"
 
 # Link to your GitHub repository (replace USERNAME with your GitHub username and REPO with your repository name)
-git remote add origin https://github.com/USERNAME/REPO.git
+git remote add origin https://github.com/m0shaban/NEOFIKR.git
 
 # Push the files
-git push -u origin main
+git push -u origin master
 ```
 
 ## Step 3: Enable GitHub Pages
