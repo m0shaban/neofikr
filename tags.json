@@ -1,0 +1,15 @@
+---
+layout: null
+permalink: /blog/tags.json
+---
+{
+  "tags": [
+    {% for tag in site.tags %}
+    {
+      "name": "{{ tag[0] }}",
+      "slug": "{{ tag[0] | slugify }}",
+      "count": {{ tag[1].size }}
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ]
+}

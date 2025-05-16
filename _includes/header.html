@@ -1,0 +1,32 @@
+<header>
+    <nav aria-label="Main Navigation" class="relative z-50 py-6 px-4 md:px-12 backdrop-blur-md bg-dark/80 border-b border-cyan-500/20">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <a aria-label="NeoFikr Home" href="{{ site.baseurl }}/">
+                    <div class="hexagon w-12 h-12 bg-gradient-to-br from-cyan-500 to-purple-600 flex items-center justify-center glow pulse-soft">
+                        <span class="futuristic-text text-xl font-bold">N</span>
+                    </div>
+                </a>
+                <span class="futuristic-text text-2xl font-bold gradient-text neon-flicker">NeoFikr</span>
+            </div>
+            
+            <div aria-label="Main menu" class="hidden md:flex space-x-8" role="menubar">
+                <a class="text-light hover:text-cyan-400 transition-all duration-300 hover:glow-hover cyber-button px-3 py-1" href="{{ site.baseurl }}/#home" role="menuitem">الرئيسية</a>
+                <a class="text-light hover:text-cyan-400 transition-all duration-300 hover:glow-hover cyber-button px-3 py-1" href="{{ site.baseurl }}/#about" role="menuitem">من نحن</a>
+                <a class="text-light hover:text-cyan-400 transition-all duration-300 hover:glow-hover cyber-button px-3 py-1" href="{{ site.baseurl }}/#services" role="menuitem">خدماتنا</a>
+                <a class="text-light hover:text-cyan-400 transition-all duration-300 hover:glow-hover cyber-button px-3 py-1" href="{{ site.baseurl }}/#why-us" role="menuitem">لماذا نحن</a>
+                <a class="text-light hover:text-cyan-400 transition-all duration-300 hover:glow-hover cyber-button px-3 py-1" href="{{ site.baseurl }}/blog/" role="menuitem">المدونة</a>
+                <a class="text-light hover:text-cyan-400 transition-all duration-300 hover:glow-hover cyber-button px-3 py-1" href="{{ site.baseurl }}/#contact" role="menuitem">تواصل معنا</a>
+            </div>
+            
+            <div class="flex items-center space-x-4">
+                <button class="px-6 py-2 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-full text-dark font-bold hover:from-cyan-400 hover:to-purple-500 transition-all duration-300 glow-hover cyber-button" id="random-tip-button">
+                    <i class="fas fa-lightbulb mr-2"></i> نصيحة عشوائية
+                </button>
+                <button aria-expanded="false" aria-label="Toggle mobile menu" class="md:hidden text-2xl text-cyan-400 hover:text-purple-400 transition-all mobile-menu-button">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+</header>
