@@ -1,0 +1,307 @@
+:root {
+    --primary: #00f0ff;
+    --secondary: #7928ca;
+    --tertiary: #ff0080;
+    --dark: #0f0e17;
+    --light: #fffffe;
+}
+
+body {
+    font-family: 'Tajawal', sans-serif;
+    background-color: var(--dark);
+    color: var(--light);
+    overflow-x: hidden;
+    min-height: 100vh; 
+    position: relative;
+}
+
+.futuristic-text {
+    font-family: 'Orbitron', 'Tajawal', sans-serif;
+    letter-spacing: 1px;
+}
+
+.gradient-text {
+    background: linear-gradient(90deg, var(--primary), var(--secondary), var(--tertiary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    background-size: 300% 300%;
+    animation: gradient 8s ease infinite;
+}
+
+.glow {
+    filter: drop-shadow(0 0 5px var(--primary)); 
+}
+
+.glow-hover:hover {
+    filter: drop-shadow(0 0 10px var(--primary));
+}
+
+.cyber-border {
+    border: 2px solid var(--primary);
+    position: relative;
+    overflow: hidden;
+}
+
+.cyber-border::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border: 2px solid var(--secondary);
+    z-index: -1;
+}
+
+.cyber-border::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 240, 255, 0.2), transparent);
+    transition: 0.5s;
+}
+
+.cyber-border:hover::after {
+    left: 100%;
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes float {
+    0% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(5deg); }
+    100% { transform: translateY(0px) rotate(0deg); }
+}
+
+@keyframes pulse {
+    0% { opacity: 0.5; transform: scale(0.95); }
+    50% { opacity: 1; transform: scale(1.05); }
+    100% { opacity: 0.5; transform: scale(0.95); }
+}
+
+@keyframes pulse-soft {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+    100% { transform: scale(1); }
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes neon-flicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        text-shadow:
+            0 0 3px #fff,
+            0 0 6px #fff,
+            0 0 10px var(--primary),
+            0 0 15px var(--primary),
+            0 0 25px var(--primary),
+            0 0 30px var(--primary); 
+        opacity: 1;
+    }
+    20%, 24%, 55% {        
+        text-shadow: none;
+        opacity: 0.85;
+    }
+}
+
+@keyframes scanline {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 100%; }
+}
+
+.floating {
+    animation: float 6s ease-in-out infinite;
+}
+
+.pulse {
+    animation: pulse 3s ease-in-out infinite;
+}
+
+.pulse-soft {
+    animation: pulse-soft 5s ease-in-out infinite;
+}
+
+.rotate {
+    animation: rotate 20s linear infinite;
+}
+
+.neon-flicker {
+    animation: neon-flicker 2s infinite alternate;
+}
+
+.hexagon {
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.grid-pattern {
+    background-image: 
+        linear-gradient(rgba(0, 240, 255, 0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 240, 255, 0.07) 1px, transparent 1px);
+    background-size: 40px 40px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.scanlines {
+    position: relative;
+}
+
+.scanlines::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        transparent 50%,
+        rgba(0, 0, 0, 0.1) 51%
+    );
+    background-size: 100% 3px;
+    pointer-events: none;
+    animation: scanline 10s linear infinite;
+    z-index: 5;
+    opacity: 0.5;
+}
+
+.holographic-card {
+    background: rgba(15, 14, 23, 0.6);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(0, 240, 255, 0.2);
+    box-shadow: 0 0 25px rgba(0, 240, 255, 0.15),
+                inset 0 0 15px rgba(0, 240, 255, 0.1);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.holographic-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+    transform: rotate(0deg);
+    transition: transform 0.5s ease-out;
+    opacity: 0;
+}
+
+.holographic-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(0, 240, 255, 0.35),
+                inset 0 0 25px rgba(0, 240, 255, 0.25);
+}
+
+.holographic-card:hover::before {
+     opacity: 1;
+     transform: rotate(15deg);
+}
+
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.cyber-button {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+    border: 1px solid transparent;
+}
+
+.cyber-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.6s ease;
+}
+
+.cyber-button:hover::before {
+    left: 100%;
+}
+
+.cyber-button:hover {
+     border-color: var(--primary);
+     transform: scale(1.05);
+}
+
+.matrix-rain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+    opacity: 0.15;
+    pointer-events: none;
+}
+
+.matrix-rain span {
+    position: absolute;
+    top: -50px;
+    animation: matrix-fall linear infinite;
+    color: var(--primary);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 14px;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    text-shadow: 0 0 5px var(--primary);
+    user-select: none;
+}
+
+@keyframes matrix-fall {
+    to {
+        transform: translateY(calc(100vh + 50px));
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 30px, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+.animate-on-scroll {
+    opacity: 0;
+}
+.animate-on-scroll.is-visible {
+    animation-name: fadeInUp;
+    animation-duration: 0.8s;
+    animation-fill-mode: both; 
+}
+
+nav, section, footer {
+    position: relative;
+    z-index: 10;
+}
