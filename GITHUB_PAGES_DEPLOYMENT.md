@@ -36,8 +36,8 @@ git commit -m "Initial website commit"
 # Link to your GitHub repository (replace USERNAME with your GitHub username and REPO with your repository name)
 git remote add origin https://github.com/m0shaban/NEOFIKR.git
 
-# Push the files
-git push -u origin main
+# Push the files to master branch (GitHub Pages often uses master for deployment)
+git push -u origin master
 ```
 
 ## Step 3: Enable GitHub Pages
@@ -46,7 +46,7 @@ git push -u origin main
 2. Click on "Settings"
 3. Scroll down to the "Pages" section in the left sidebar
 4. In the "Source" dropdown under "Build and deployment", select "Deploy from a branch"
-5. In the "Branch" dropdown, select "main" and folder "/ (root)"
+5. In the "Branch" dropdown, select "master" and folder "/ (root)"
 6. Click "Save"
 7. Wait a few minutes for your site to deploy
 

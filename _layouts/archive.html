@@ -1,0 +1,69 @@
+---
+layout: default
+---
+
+<section class="relative z-10 py-20 px-4 md:px-12 bg-gradient-to-b from-dark to-gray-900/50" id="archive">
+    <div class="container mx-auto">
+        <div class="text-center mb-16 animate-on-scroll"> 
+            <h1 class="text-3xl md:text-4xl font-bold mb-4">
+                <span class="gradient-text neon-flicker">أرشيف المدونة</span>
+            </h1>
+            <div class="w-24 h-1 bg-gradient-to-r from-cyan-500 to-purple-600 mx-auto mb-6"></div>
+            <p class="text-gray-400 max-w-3xl mx-auto">
+                جميع المقالات مرتبة حسب التاريخ
+            </p>
+        </div>
+        
+        <!-- شريط تنقل المدونة -->
+        <div class="flex flex-wrap justify-center gap-3 mb-8">
+            <a href="{{ site.baseurl }}/blog/" class="px-4 py-2 bg-gradient-to-r from-gray-900 to-dark border-gray-800 text-gray-400 rounded-full hover:text-cyan-400 transition-all duration-300 border text-sm flex items-center">
+                <i class="fas fa-home ml-2"></i> الرئيسية
+            </a>
+            <a href="{{ site.baseurl }}/blog/categories/" class="px-4 py-2 bg-gradient-to-r from-gray-900 to-dark border-gray-800 text-gray-400 rounded-full hover:text-cyan-400 transition-all duration-300 border text-sm flex items-center">
+                <i class="fas fa-folder ml-2"></i> التصنيفات
+            </a>
+            <a href="{{ site.baseurl }}/blog/tags/" class="px-4 py-2 bg-gradient-to-r from-gray-900 to-dark border-gray-800 text-gray-400 rounded-full hover:text-cyan-400 transition-all duration-300 border text-sm flex items-center">
+                <i class="fas fa-tags ml-2"></i> الوسوم
+            </a>
+            <a href="{{ site.baseurl }}/blog/archive/" class="px-4 py-2 bg-gradient-to-r from-cyan-500/30 to-purple-600/30 border-cyan-500/50 text-cyan-300 rounded-full hover:text-cyan-400 transition-all duration-300 border text-sm flex items-center">
+                <i class="fas fa-archive ml-2"></i> الأرشيف
+            </a>
+        </div>
+        
+        <div class="bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-2xl p-8 relative overflow-hidden holographic-card">
+            <div class="relative z-10">
+                {% assign postsByYear = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+                {% for year in postsByYear %}
+                <div class="mb-10 last:mb-0">
+                    <h2 class="text-2xl font-bold text-light mb-4 gradient-text">{{ year.name }}</h2>
+                    <div class="space-y-4">
+                        {% for post in year.items %}
+                        <div class="bg-gray-800/50 rounded-lg p-4 border border-gray-700 hover:border-cyan-500/30 transition-all duration-300">
+                            <div class="flex justify-between items-center">
+                                <a href="{{ site.baseurl }}{{ post.url }}" class="text-lg font-bold text-light hover:text-cyan-400 transition-all duration-300">{{ post.title }}</a>
+                                <span class="text-gray-400 text-sm">{{ post.date | date: "%Y-%m-%d" }}</span>
+                            </div>
+                            {% if post.categories or post.tags %}
+                            <div class="mt-2 flex flex-wrap gap-2">
+                                {% if post.categories %}
+                                {% for category in post.categories %}
+                                <a href="{{ site.baseurl }}/blog/categories/{{ category | slugify }}/" class="px-2 py-1 bg-purple-500/10 rounded-full text-xs text-purple-400 hover:bg-purple-500/20 transition-all duration-300 border border-purple-500/30">{{ category }}</a>
+                                {% endfor %}
+                                {% endif %}
+                                
+                                {% if post.tags %}
+                                {% for tag in post.tags %}
+                                <a href="{{ site.baseurl }}/blog/tags/{{ tag | slugify }}/" class="px-2 py-1 bg-cyan-500/10 rounded-full text-xs text-cyan-400 hover:bg-cyan-500/20 transition-all duration-300 border border-cyan-500/30">{{ tag }}</a>
+                                {% endfor %}
+                                {% endif %}
+                            </div>
+                            {% endif %}
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
